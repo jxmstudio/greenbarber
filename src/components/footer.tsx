@@ -1,0 +1,134 @@
+import Link from "next/link";
+import { Phone, Mail, MapPin, Clock, Facebook } from "lucide-react";
+
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const serviceLinks = [
+    { href: "/services/tree-removal", label: "Tree Removal" },
+    { href: "/services/stump-grinding", label: "Stump Grinding" },
+    { href: "/services/crane-work", label: "Crane Work" },
+    { href: "/services/tree-pruning", label: "Tree Pruning" },
+  ];
+
+  const quickLinks = [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const serviceAreas = [
+    "Hobart",
+    "Battery Point",
+    "Sandy Bay",
+    "New Town",
+    "Lenah Valley",
+    "West Hobart",
+    "North Hobart",
+  ];
+
+  return (
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-4">The Green Barber</h3>
+            <p className="mb-4">
+              Professional tree services in Hobart, Tasmania. Expert arborists serving
+              Hobart and surrounding suburbs.
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <a href="tel:0433804284" className="hover:text-primary transition-colors">
+                  0433 804 284
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-4 w-4 mr-2" />
+                <a href="mailto:Thegreenbarbertas@gmail.com" className="hover:text-primary transition-colors">
+                  Thegreenbarbertas@gmail.com
+                </a>
+              </div>
+              <div className="flex items-start">
+                <MapPin className="h-4 w-4 mr-2 mt-1" />
+                <span>70 Carlton Beach Rd, Dodges Ferry, TAS, Australia</span>
+              </div>
+              <div className="flex items-center">
+                <Clock className="h-4 w-4 mr-2" />
+                <span>Mon - Sat: 7:00 AM - 6:00 PM</span>
+              </div>
+              <div className="flex items-center mt-4">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61573561687111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-primary transition-colors"
+                >
+                  <Facebook className="h-4 w-4 mr-2" />
+                  <span>Follow us on Facebook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
+            <ul className="space-y-2">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">Service Areas</h4>
+            <ul className="space-y-2">
+              {serviceAreas.map((area) => (
+                <li key={area} className="text-sm">
+                  {area}
+                </li>
+              ))}
+              <li className="text-sm text-gray-400 mt-2">and surrounding suburbs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+          <p>
+            &copy; {currentYear} The Green Barber. All rights reserved. | Professional Tree
+            Services in Hobart, Tasmania
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
