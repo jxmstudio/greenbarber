@@ -21,7 +21,7 @@ export default function HomePage() {
     {
       title: "Experienced Professionals",
       description:
-        "Our team of certified arborists brings years of experience serving Hobart and surrounding areas.",
+        "Our team of certified arborists brings years of experience serving Southern Tasmania and surrounding areas.",
     },
     {
       title: "Fully Insured",
@@ -36,44 +36,40 @@ export default function HomePage() {
     {
       title: "Local Expertise",
       description:
-        "As Hobart locals, we understand the unique tree species and local regulations in Tasmania.",
+        "As Southern Tasmania locals, we understand the unique tree species and local regulations in the region.",
     },
   ];
 
   const testimonials = [
     {
       name: "Sarah Mitchell",
-      location: "Battery Point, Hobart",
+      location: "Dodges Ferry, Tasmania",
       text: "Excellent service! The team removed a large tree safely and efficiently. Very professional and cleaned up perfectly.",
       rating: 5,
     },
     {
       name: "John Thompson",
-      location: "Sandy Bay, Hobart",
+      location: "Carlton Beach, Tasmania",
       text: "Great experience from quote to completion. The stump grinding was done quickly and the yard looks fantastic.",
       rating: 5,
     },
     {
       name: "Emma Davis",
-      location: "New Town, Hobart",
+      location: "Hobart, Tasmania",
       text: "Professional, reliable, and reasonably priced. They did a fantastic job pruning our trees. Highly recommend!",
       rating: 5,
     },
   ];
 
   const serviceAreas = [
+    "Dodges Ferry",
+    "Carlton Beach",
+    "Eagle Hawk Neck",
+    "Midway Point",
+    "Sorrell",
     "Hobart",
-    "Battery Point",
-    "Sandy Bay",
-    "New Town",
-    "Lenah Valley",
-    "West Hobart",
-    "North Hobart",
-    "South Hobart",
-    "Mount Stuart",
-    "Dynnyrne",
-    "Bellerive",
     "Howrah",
+    "West Hobart",
   ];
 
   return (
@@ -111,7 +107,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose The Green Barber?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Professional tree services you can trust in Hobart and throughout Tasmania
+              Professional tree services you can trust throughout Southern Tasmania
             </p>
           </div>
 
@@ -151,7 +147,7 @@ export default function HomePage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Service Areas</h2>
             <p className="text-lg text-gray-600">
-              We proudly serve Hobart and surrounding suburbs
+              We proudly serve Southern Tasmania, with a focus on Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, and West Hobart
             </p>
           </motion.div>
 

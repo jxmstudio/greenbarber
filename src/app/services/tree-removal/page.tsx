@@ -6,20 +6,20 @@ import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
 
 export const metadata: Metadata = {
-  title: "Tree Removal in Hobart | The Green Barber",
+  title: "Tree Removal in Southern Tasmania | The Green Barber",
   description:
-    "Professional tree removal services in Hobart, Tasmania. Safe and efficient tree removal serving Battery Point, Sandy Bay, New Town, Lenah Valley and surrounding suburbs. Free quotes available.",
+    "Professional tree removal services in Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and throughout Southern Tasmania. Safe and efficient tree removal. Free quotes available.",
   keywords: [
+    "tree removal Southern Tasmania",
+    "tree removal Dodges Ferry",
     "tree removal Hobart",
-    "tree removal Tasmania",
-    "tree removal Battery Point",
-    "tree removal Sandy Bay",
-    "emergency tree removal Hobart",
+    "tree removal Carlton Beach",
+    "emergency tree removal Southern Tasmania",
   ],
   openGraph: {
-    title: "Tree Removal in Hobart | The Green Barber",
+    title: "Tree Removal in Southern Tasmania | The Green Barber",
     description:
-      "Professional tree removal services in Hobart, Tasmania. Safe and efficient removal of hazardous trees.",
+      "Professional tree removal services throughout Southern Tasmania. Safe and efficient removal of hazardous trees.",
     type: "website",
   },
 };
@@ -41,7 +41,7 @@ export default function TreeRemovalPage() {
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
       <AnimatedHero
-        title={`${service.name} in Hobart`}
+        title={`${service.name} in Southern Tasmania`}
         description={service.description}
       />
       <ServicePageContent service={service} />

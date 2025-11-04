@@ -12,21 +12,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The Green Barber | Professional Tree Services in Hobart, Tasmania",
+  title: "The Green Barber | Professional Tree Services in Southern Tasmania",
   description:
-    "Expert tree removal, stump grinding, crane work, and tree pruning services in Hobart and surrounding suburbs. Fully insured arborists serving Battery Point, Sandy Bay, New Town, and more.",
+    "Expert hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania. Fully insured arborists serving Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart, and more.",
   keywords: [
-    "tree removal Hobart",
-    "stump grinding Hobart",
-    "tree services Hobart",
-    "arborist Hobart",
-    "tree pruning Hobart",
-    "crane work Hobart",
+    "tree removal Southern Tasmania",
+    "stump grinding Southern Tasmania",
+    "hedge trimming Southern Tasmania",
+    "tree pruning Southern Tasmania",
+    "tree services Dodges Ferry",
+    "arborist Southern Tasmania",
+    "tree reduction Southern Tasmania",
   ],
   openGraph: {
-    title: "The Green Barber | Professional Tree Services in Hobart",
+    title: "The Green Barber | Professional Tree Services in Southern Tasmania",
     description:
-      "Expert tree removal, stump grinding, crane work, and tree pruning services in Hobart and surrounding suburbs.",
+      "Expert hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania.",
     type: "website",
     locale: "en_AU",
   },

@@ -47,7 +47,7 @@ Create a `.env.local` file in the root directory:
 ```env
 NEXT_PUBLIC_SITE_URL=https://thegreenbarber.com.au
 RESEND_API_KEY=your_resend_api_key
-CONTACT_EMAIL=Thegreenbarbertas@gmail.com
+CONTACT_EMAIL=thegreenbarbertas@gmail.com
 FROM_EMAIL=noreply@thegreenbarber.com.au
 ```
 

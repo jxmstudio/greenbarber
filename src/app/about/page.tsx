@@ -7,20 +7,14 @@ import { Award, Users, Shield, MapPin, CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
   const serviceAreas = [
+    "Dodges Ferry",
+    "Carlton Beach",
+    "Eagle Hawk Neck",
+    "Midway Point",
+    "Sorrell",
     "Hobart",
-    "Battery Point",
-    "Sandy Bay",
-    "New Town",
-    "Lenah Valley",
-    "West Hobart",
-    "North Hobart",
-    "South Hobart",
-    "Mount Stuart",
-    "Dynnyrne",
-    "Bellerive",
     "Howrah",
-    "Tranmere",
-    "Rokeby",
+    "West Hobart",
   ];
 
   const whyChooseUs = [
@@ -40,13 +34,13 @@ export default function AboutPage() {
       icon: Users,
       title: "Experienced Team",
       description:
-        "With over 15 years of experience serving Hobart, we've completed thousands of successful projects across the region.",
+        "With over 15 years of experience serving Southern Tasmania, we've completed thousands of successful projects across the region.",
     },
     {
       icon: MapPin,
       title: "Local Expertise",
       description:
-        "As Hobart locals, we understand Tasmania's unique tree species, climate, and local council requirements.",
+        "As Southern Tasmania locals, we understand the region's unique tree species, climate, and local council requirements.",
     },
   ];
 
@@ -67,7 +61,7 @@ export default function AboutPage() {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About The Green Barber</h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl">
-              Professional tree services in Hobart, Tasmania. Trusted by homeowners and businesses
+              Professional tree services throughout Southern Tasmania. Trusted by homeowners and businesses
               throughout the region.
             </p>
           </motion.div>
@@ -87,15 +81,15 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our Story</h2>
               <div className="prose prose-lg max-w-none space-y-4 text-gray-700">
                 <p>
-                  The Green Barber has been serving Hobart and surrounding areas with professional
+                  The Green Barber has been serving Southern Tasmania with professional
                   tree services for over 15 years. Founded by Conrad, a certified arborist with
                   extensive experience in tree care and removal, our company has built a reputation
                   for excellence, safety, and customer satisfaction.
                 </p>
                 <p>
-                  What started as a small local business has grown into one of Hobart's most trusted
-                  tree service providers. We've completed thousands of projects across Hobart, Battery
-                  Point, Sandy Bay, New Town, Lenah Valley, and many other suburbs, helping
+                  What started as a small local business has grown into one of Southern Tasmania's most trusted
+                  tree service providers. We've completed thousands of projects across Dodges Ferry, Carlton Beach,
+                  Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart, and many other areas, helping
                   homeowners and businesses maintain safe, healthy, and beautiful landscapes.
                 </p>
                 <p>
@@ -138,7 +132,7 @@ export default function AboutPage() {
                     <p>
                       When you work with The Green Barber, you're working with a team led by someone
                       who truly cares about trees, safety, and providing the best possible service
-                      to Hobart residents and businesses.
+                      to Southern Tasmania residents and businesses.
                     </p>
                   </div>
                 </CardContent>
@@ -201,7 +195,7 @@ export default function AboutPage() {
             </motion.div>
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>We Serve Hobart and Surrounding Suburbs</CardTitle>
+                <CardTitle>We Serve Southern Tasmania</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

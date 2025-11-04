@@ -14,7 +14,7 @@ interface ContactStripProps {
 
 export function ContactStrip({
   title = "Ready to Get Started?",
-  description = "Contact us today for a free quote on all your tree service needs in Hobart",
+  description = "Contact us today for a free quote on all your tree service needs throughout Southern Tasmania",
   showPhone = true,
   showEmail = true,
 }: ContactStripProps) {

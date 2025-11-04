@@ -30,8 +30,8 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                 <h2 className="text-3xl font-bold mb-4">About {service.name}</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Professional {service.name.toLowerCase()} is essential when trees pose safety
-                  risks, are diseased, or need professional care. Our experienced arborists in
-                  Hobart use safe, efficient techniques while protecting your property and
+                  risks, are diseased, or need professional care. Our experienced arborists throughout
+                  Southern Tasmania use safe, efficient techniques while protecting your property and
                   surrounding landscape.
                 </p>
               </motion.div>
@@ -136,11 +136,14 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                   <div className="text-sm text-gray-600">
                     <p className="font-semibold mb-2">Service Areas:</p>
                     <ul className="space-y-1">
+                      <li>• Dodges Ferry</li>
+                      <li>• Carlton Beach</li>
+                      <li>• Eagle Hawk Neck</li>
+                      <li>• Midway Point</li>
+                      <li>• Sorrell</li>
                       <li>• Hobart</li>
-                      <li>• Battery Point</li>
-                      <li>• Sandy Bay</li>
-                      <li>• New Town</li>
-                      <li>• Lenah Valley</li>
+                      <li>• Howrah</li>
+                      <li>• West Hobart</li>
                       <li>• And more...</li>
                     </ul>
                   </div>

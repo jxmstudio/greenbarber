@@ -21,7 +21,7 @@ export function LocalBusinessSchema() {
       latitude: -42.9925,
       longitude: 147.8105,
     },
-    email: "Thegreenbarbertas@gmail.com",
+    email: "thegreenbarbertas@gmail.com",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -34,23 +34,35 @@ export function LocalBusinessSchema() {
     areaServed: [
       {
         "@type": "City",
+        name: "Dodges Ferry",
+      },
+      {
+        "@type": "City",
+        name: "Carlton Beach",
+      },
+      {
+        "@type": "City",
+        name: "Eagle Hawk Neck",
+      },
+      {
+        "@type": "City",
+        name: "Midway Point",
+      },
+      {
+        "@type": "City",
+        name: "Sorrell",
+      },
+      {
+        "@type": "City",
         name: "Hobart",
       },
       {
         "@type": "City",
-        name: "Battery Point",
+        name: "Howrah",
       },
       {
         "@type": "City",
-        name: "Sandy Bay",
-      },
-      {
-        "@type": "City",
-        name: "New Town",
-      },
-      {
-        "@type": "City",
-        name: "Lenah Valley",
+        name: "West Hobart",
       },
     ],
   };

@@ -156,10 +156,10 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
               <SelectValue placeholder="Select a service" />
             </SelectTrigger>
             <SelectContent>
+              <SelectItem value="hedge-trimming">Hedge Trimming</SelectItem>
+              <SelectItem value="tree-pruning">Tree Pruning & Reductions</SelectItem>
               <SelectItem value="tree-removal">Tree Removal</SelectItem>
               <SelectItem value="stump-grinding">Stump Grinding</SelectItem>
-              <SelectItem value="crane-work">Crane Work</SelectItem>
-              <SelectItem value="tree-pruning">Tree Pruning</SelectItem>
               <SelectItem value="other">Other</SelectItem>
             </SelectContent>
           </Select>

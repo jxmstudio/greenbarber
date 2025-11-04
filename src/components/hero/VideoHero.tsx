@@ -12,8 +12,8 @@ interface VideoHeroProps {
 }
 
 export function VideoHero({
-  title = "Professional Tree Services in Hobart",
-  subtitle = "Expert arborists providing tree removal, stump grinding, crane work, and tree pruning services throughout Hobart and surrounding suburbs.",
+  title = "Professional Tree Services in Southern Tasmania",
+  subtitle = "Expert arborists providing hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania.",
   showCTA = true,
 }: VideoHeroProps) {
   return (

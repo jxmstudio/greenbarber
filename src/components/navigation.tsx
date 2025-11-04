@@ -18,10 +18,10 @@ export function Navigation() {
   ];
 
   const serviceLinks = [
+    { href: "/services/hedge-trimming", label: "Hedge Trimming" },
+    { href: "/services/tree-pruning", label: "Tree Pruning & Reductions" },
     { href: "/services/tree-removal", label: "Tree Removal" },
     { href: "/services/stump-grinding", label: "Stump Grinding" },
-    { href: "/services/crane-work", label: "Crane Work" },
-    { href: "/services/tree-pruning", label: "Tree Pruning" },
   ];
 
   return (

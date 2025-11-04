@@ -23,7 +23,7 @@ export default function ContactPage() {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl">
-              Get in touch for a free quote on all your tree service needs in Hobart
+              Get in touch for a free quote on all your tree service needs throughout Southern Tasmania
             </p>
           </motion.div>
         </div>
@@ -89,10 +89,10 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold">Email</p>
                       <a
-                        href="mailto:Thegreenbarbertas@gmail.com"
+                        href="mailto:thegreenbarbertas@gmail.com"
                         className="text-primary hover:underline"
                       >
-                        Thegreenbarbertas@gmail.com
+                        thegreenbarbertas@gmail.com
                       </a>
                     </div>
                   </motion.div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <p className="text-sm text-gray-600 mt-4">
-                      We service Dodges Ferry, Hobart and surrounding areas throughout Tasmania.
+                      We service Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and throughout Southern Tasmania.
                     </p>
                   </CardContent>
                 </Card>

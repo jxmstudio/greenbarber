@@ -24,7 +24,7 @@ export default function ServicesPage() {
     {
       title: "Local Expertise",
       description:
-        "As Hobart locals, we understand Tasmania's unique tree species, climate, and local regulations.",
+        "As Southern Tasmania locals, we understand the region's unique tree species, climate, and local regulations.",
     },
     {
       title: "Modern Equipment",
@@ -49,11 +49,11 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional Tree Services in Hobart
+              Professional Tree Services in Southern Tasmania
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl">
-              Expert arborists providing comprehensive tree care services throughout Hobart and
-              surrounding suburbs. Fully insured and certified professionals.
+              Expert arborists providing comprehensive tree care services throughout Southern Tasmania.
+              Fully insured and certified professionals.
             </p>
           </motion.div>
         </div>

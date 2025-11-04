@@ -6,19 +6,20 @@ import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
 
 export const metadata: Metadata = {
-  title: "Stump Grinding in Hobart | The Green Barber",
+  title: "Stump Grinding in Southern Tasmania | The Green Barber",
   description:
-    "Professional stump grinding services in Hobart, Tasmania. Fast and efficient stump removal serving Battery Point, Sandy Bay, New Town, Lenah Valley and surrounding suburbs. Free quotes available.",
+    "Professional stump grinding services in Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and throughout Southern Tasmania. Fast and efficient stump removal. Free quotes available.",
   keywords: [
+    "stump grinding Southern Tasmania",
+    "stump removal Southern Tasmania",
+    "stump grinding Dodges Ferry",
     "stump grinding Hobart",
-    "stump removal Hobart",
-    "stump grinding Tasmania",
-    "stump grinding Battery Point",
+    "stump grinding Carlton Beach",
   ],
   openGraph: {
-    title: "Stump Grinding in Hobart | The Green Barber",
+    title: "Stump Grinding in Southern Tasmania | The Green Barber",
     description:
-      "Professional stump grinding services in Hobart, Tasmania. Fast and efficient stump removal.",
+      "Professional stump grinding services throughout Southern Tasmania. Fast and efficient stump removal.",
     type: "website",
   },
 };
@@ -40,7 +41,7 @@ export default function StumpGrindingPage() {
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
       <AnimatedHero
-        title={`${service.name} in Hobart`}
+        title={`${service.name} in Southern Tasmania`}
         description={service.description}
       />
       <ServicePageContent service={service} />

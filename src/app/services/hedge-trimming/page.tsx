@@ -6,25 +6,26 @@ import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
 
 export const metadata: Metadata = {
-  title: "Crane Work in Hobart | The Green Barber",
+  title: "Hedge Trimming in Southern Tasmania | The Green Barber",
   description:
-    "Specialized crane-assisted tree work in Hobart, Tasmania. Professional crane services for large trees and difficult access situations. Serving Hobart and surrounding suburbs. Free quotes available.",
+    "Professional hedge trimming services in Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and throughout Southern Tasmania. Expert hedge care and maintenance. Free quotes available.",
   keywords: [
-    "crane work Hobart",
-    "crane tree removal Hobart",
-    "crane services Hobart",
-    "large tree removal Hobart",
+    "hedge trimming Southern Tasmania",
+    "hedge trimming Dodges Ferry",
+    "hedge trimming Hobart",
+    "hedge trimming Carlton Beach",
+    "hedge care Southern Tasmania",
   ],
   openGraph: {
-    title: "Crane Work in Hobart | The Green Barber",
+    title: "Hedge Trimming in Southern Tasmania | The Green Barber",
     description:
-      "Specialized crane-assisted tree work in Hobart, Tasmania. Professional crane services for large trees.",
+      "Professional hedge trimming services throughout Southern Tasmania. Expert hedge care and maintenance.",
     type: "website",
   },
 };
 
-export default function CraneWorkPage() {
-  const service = getServiceBySlug("crane-work");
+export default function HedgeTrimmingPage() {
+  const service = getServiceBySlug("hedge-trimming");
 
   if (!service) {
     return <div>Service not found</div>;
@@ -40,7 +41,7 @@ export default function CraneWorkPage() {
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
       <AnimatedHero
-        title={`${service.name} in Hobart`}
+        title={`${service.name} in Southern Tasmania`}
         description={service.description}
       />
       <ServicePageContent service={service} />
@@ -48,3 +49,4 @@ export default function CraneWorkPage() {
     </>
   );
 }
+

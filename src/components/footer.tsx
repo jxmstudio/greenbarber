@@ -5,10 +5,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const serviceLinks = [
+    { href: "/services/hedge-trimming", label: "Hedge Trimming" },
+    { href: "/services/tree-pruning", label: "Tree Pruning & Reductions" },
     { href: "/services/tree-removal", label: "Tree Removal" },
     { href: "/services/stump-grinding", label: "Stump Grinding" },
-    { href: "/services/crane-work", label: "Crane Work" },
-    { href: "/services/tree-pruning", label: "Tree Pruning" },
   ];
 
   const quickLinks = [
@@ -19,13 +19,14 @@ export function Footer() {
   ];
 
   const serviceAreas = [
+    "Dodges Ferry",
+    "Carlton Beach",
+    "Eagle Hawk Neck",
+    "Midway Point",
+    "Sorrell",
     "Hobart",
-    "Battery Point",
-    "Sandy Bay",
-    "New Town",
-    "Lenah Valley",
+    "Howrah",
     "West Hobart",
-    "North Hobart",
   ];
 
   return (
@@ -36,8 +37,8 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">The Green Barber</h3>
             <p className="mb-4">
-              Professional tree services in Hobart, Tasmania. Expert arborists serving
-              Hobart and surrounding suburbs.
+              Professional tree services throughout Southern Tasmania. Expert arborists serving
+              Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and surrounding areas.
             </p>
             <div className="space-y-2">
               <div className="flex items-center">
@@ -48,8 +49,8 @@ export function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
-                <a href="mailto:Thegreenbarbertas@gmail.com" className="hover:text-primary transition-colors">
-                  Thegreenbarbertas@gmail.com
+                <a href="mailto:thegreenbarbertas@gmail.com" className="hover:text-primary transition-colors">
+                  thegreenbarbertas@gmail.com
                 </a>
               </div>
               <div className="flex items-start">
@@ -125,7 +126,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
           <p>
             &copy; {currentYear} The Green Barber. All rights reserved. | Professional Tree
-            Services in Hobart, Tasmania
+            Services in Southern Tasmania
           </p>
         </div>
       </div>

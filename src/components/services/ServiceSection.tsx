@@ -17,7 +17,7 @@ interface ServiceSectionProps {
 export function ServiceSection({
   services,
   title = "Our Services",
-  description = "Professional tree services throughout Hobart and surrounding areas",
+  description = "Professional tree services throughout Southern Tasmania",
   showViewAll = true,
 }: ServiceSectionProps) {
   return (

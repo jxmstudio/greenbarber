@@ -20,10 +20,10 @@ export async function POST(request: NextRequest) {
 
     // Prepare email content
     const serviceTypeLabels: Record<string, string> = {
+      "hedge-trimming": "Hedge Trimming",
+      "tree-pruning": "Tree Pruning & Reductions",
       "tree-removal": "Tree Removal",
       "stump-grinding": "Stump Grinding",
-      "crane-work": "Crane Work",
-      "tree-pruning": "Tree Pruning",
       "other": "Other",
     };
 

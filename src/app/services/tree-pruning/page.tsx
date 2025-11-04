@@ -6,20 +6,21 @@ import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
 
 export const metadata: Metadata = {
-  title: "Tree Pruning in Hobart | The Green Barber",
+  title: "Tree Pruning and Reductions in Southern Tasmania | The Green Barber",
   description:
-    "Professional tree pruning and trimming services in Hobart, Tasmania. Expert arborists providing crown reduction, deadwood removal, and structural pruning. Serving Hobart and surrounding suburbs. Free quotes available.",
+    "Professional tree pruning and reduction services in Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart and throughout Southern Tasmania. Expert arborists providing crown reduction, deadwood removal, and structural pruning. Free quotes available.",
   keywords: [
+    "tree pruning Southern Tasmania",
+    "tree reduction Southern Tasmania",
+    "tree pruning Dodges Ferry",
     "tree pruning Hobart",
-    "tree trimming Hobart",
-    "tree pruning Tasmania",
-    "arborist Hobart",
-    "tree care Hobart",
+    "crown reduction Southern Tasmania",
+    "arborist Southern Tasmania",
   ],
   openGraph: {
-    title: "Tree Pruning in Hobart | The Green Barber",
+    title: "Tree Pruning and Reductions in Southern Tasmania | The Green Barber",
     description:
-      "Professional tree pruning and trimming services in Hobart, Tasmania. Expert arborists providing crown reduction and pruning.",
+      "Professional tree pruning and reduction services throughout Southern Tasmania. Expert arborists providing crown reduction and pruning.",
     type: "website",
   },
 };
@@ -41,7 +42,7 @@ export default function TreePruningPage() {
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
       <AnimatedHero
-        title={`${service.name} in Hobart`}
+        title={`${service.name} in Southern Tasmania`}
         description={service.description}
       />
       <ServicePageContent service={service} />
