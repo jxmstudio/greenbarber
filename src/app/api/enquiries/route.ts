@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const enquirySchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
@@ -54,6 +52,7 @@ This message was sent from the contact form on The Green Barber website.
 
     // Send email via Resend
     if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
+      const resend = new Resend(process.env.RESEND_API_KEY);
       await resend.emails.send({
         from: process.env.FROM_EMAIL || "noreply@thegreenbarber.com.au",
         to: process.env.CONTACT_EMAIL,
@@ -76,7 +75,7 @@ This message was sent from the contact form on The Green Barber website.
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Invalid form data", details: error.errors },
+        { error: "Invalid form data", details: error.issues },
         { status: 400 }
       );
     }

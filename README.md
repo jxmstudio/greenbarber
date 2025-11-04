@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Green Barber - Tree Services Website
+
+Professional Next.js website for The Green Barber, a tree service company based in Dodges Ferry, Tasmania.
+
+## Tech Stack
+
+- **Framework**: Next.js 15+ (App Router) with TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Forms**: react-hook-form + zod
+- **Email**: Resend API
+- **SEO**: next-seo, next-sitemap
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the root directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_SITE_URL=https://thegreenbarber.com.au
+RESEND_API_KEY=your_resend_api_key
+CONTACT_EMAIL=Thegreenbarbertas@gmail.com
+FROM_EMAIL=noreply@thegreenbarber.com.au
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment to Vercel
 
-## Deploy on Vercel
+### Option 1: Vercel CLI (Recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Install Vercel CLI:
+```bash
+npm i -g vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Deploy:
+```bash
+vercel
+```
+
+3. Follow the prompts to link your project or create a new one.
+
+### Option 2: GitHub Integration
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your GitHub repository
+5. Add environment variables in Vercel dashboard
+6. Deploy!
+
+## Environment Variables in Vercel
+
+Add these in your Vercel project settings:
+
+- `NEXT_PUBLIC_SITE_URL` - Your production URL
+- `RESEND_API_KEY` - Your Resend API key
+- `CONTACT_EMAIL` - Email to receive form submissions
+- `FROM_EMAIL` - Email address for sending emails
+
+## Project Structure
+
+```
+src/
+├── app/              # Next.js App Router pages
+├── components/       # React components
+├── data/            # Static data and content
+└── lib/             # Utility functions
+```
+
+## Features
+
+- ✅ SEO optimized with metadata and schema markup
+- ✅ Responsive design
+- ✅ Contact form with email notifications
+- ✅ Facebook reviews integration
+- ✅ Service pages with detailed content
+- ✅ Dynamic sitemap generation
+- ✅ Local business schema for SEO
+
+## License
+
+Private - The Green Barber
