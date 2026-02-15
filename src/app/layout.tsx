@@ -1,14 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Work_Sans, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { LocalBusinessSchema } from "@/components/schema/LocalBusinessSchema";
 
-const inter = Inter({
-  variable: "--font-inter",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const workSans = Work_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const crimsonPro = Crimson_Pro({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -40,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${playfairDisplay.variable} ${workSans.variable} ${crimsonPro.variable} font-sans antialiased`}>
         <LocalBusinessSchema />
         <Navigation />
         <main>{children}</main>

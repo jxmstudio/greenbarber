@@ -11,6 +11,44 @@ const enquirySchema = z.object({
   urgency: z.string().optional(),
 });
 
+// Helper: append lead data to Google Sheet via Apps Script webhook
+async function appendToGoogleSheet(data: z.infer<typeof enquirySchema>) {
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.warn("GOOGLE_SHEET_WEBHOOK_URL not set — skipping sheet write");
+    return;
+  }
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    serviceType: data.serviceType,
+    urgency: data.urgency || "Not specified",
+    message: data.message,
+  };
+
+  // Google Apps Script returns a 302 redirect after processing the POST.
+  // We use redirect: "manual" because auto-follow changes POST to GET,
+  // which breaks the response. The data IS written on the initial POST.
+  const res = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    redirect: "manual",
+  });
+
+  // 302 = success (Apps Script processed the POST and is redirecting to the response)
+  // 200 = success (direct response)
+  if (res.status !== 302 && res.status !== 200) {
+    const responseText = await res.text();
+    throw new Error(`Google Sheet webhook responded with ${res.status}: ${responseText}`);
+  }
+
+  console.log("Google Sheet webhook: lead saved successfully");
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -66,6 +104,14 @@ This message was sent from the contact form on The Green Barber website.
         subject: `New Enquiry: ${serviceTypeLabels[validatedData.serviceType] || "General Enquiry"}`,
         content: emailContent,
       });
+    }
+
+    // Append lead to Google Sheet (fire-and-forget — don't block the response)
+    try {
+      await appendToGoogleSheet(validatedData);
+    } catch (sheetError) {
+      console.error("Failed to write to Google Sheet:", sheetError);
+      // Don't fail the form submission if the sheet write fails
     }
 
     return NextResponse.json(

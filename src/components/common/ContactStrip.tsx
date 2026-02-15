@@ -19,8 +19,11 @@ export function ContactStrip({
   showEmail = true,
 }: ContactStripProps) {
   return (
-    <section className="bg-primary text-white py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-primary text-white py-12 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

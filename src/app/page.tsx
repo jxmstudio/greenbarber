@@ -3,6 +3,7 @@
 import { VideoHero } from "@/components/hero/VideoHero";
 import { ServiceSection } from "@/components/services/ServiceSection";
 import { ContactStrip } from "@/components/common/ContactStrip";
+import { EmergencyCTA } from "@/components/common/EmergencyCTA";
 import { FacebookReviews } from "@/components/reviews/FacebookReviews";
 import { services } from "@/data/services";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +13,6 @@ import { CheckCircle2, Award, Users, MapPin } from "lucide-react";
 export default function HomePage() {
   const stats = [
     { icon: Award, value: "15+", label: "Years Experience" },
-    { icon: Users, value: "5000+", label: "Happy Customers" },
     { icon: CheckCircle2, value: "100%", label: "Insured & Licensed" },
     { icon: MapPin, value: "50+", label: "Service Areas" },
   ];
@@ -76,10 +76,16 @@ export default function HomePage() {
     <>
       <VideoHero />
       
+      {/* Emergency CTA */}
+      <EmergencyCTA />
+      
       {/* Stats Section */}
-      <section className="py-12 bg-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-16 bg-layered-gradient text-white relative overflow-hidden pattern-organic">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-3 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -87,11 +93,21 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                className="text-center relative"
               >
-                <stat.icon className="h-8 w-8 mx-auto mb-2" />
-                <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
-                <div className="text-sm md:text-base text-gray-200">{stat.label}</div>
+                <div className="relative inline-block mb-4">
+                  <div className="absolute inset-0 bg-white/20 rounded-full blur-xl" />
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-full p-4 border border-white/20">
+                    <stat.icon className="h-8 w-8 md:h-10 md:w-10 mx-auto text-white" />
+                  </div>
+                </div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-b from-white to-gray-200 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-sm md:text-base text-gray-200 font-medium">{stat.label}</div>
+                {index < stats.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 w-px h-16 bg-white/20" />
+                )}
               </motion.div>
             ))}
           </div>
@@ -102,8 +118,11 @@ export default function HomePage() {
       <ServiceSection services={services} />
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #f8f9f7 50%, #f0f4ed 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-30" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose The Green Barber?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -120,7 +139,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full">
+                <Card className="h-full border border-gray-200">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                     <p className="text-gray-600">{item.description}</p>
@@ -136,8 +155,11 @@ export default function HomePage() {
       <FacebookReviews />
 
       {/* Service Areas Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9f7 30%, #f0f4ed 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-wood opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,6 +167,9 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
+            <div className="inline-block mb-4">
+              <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Service Areas</h2>
             <p className="text-lg text-gray-600">
               We proudly serve Southern Tasmania, with a focus on Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, and West Hobart

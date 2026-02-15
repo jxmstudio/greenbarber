@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,29 +28,43 @@ export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 md:h-24 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <motion.span
-              className="text-2xl font-bold text-primary"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
+              className="flex items-center"
+              suppressHydrationWarning
             >
-              The Green Barber
-            </motion.span>
+              <Image
+                src="/logo.jpg"
+                alt="The Green Barber Logo"
+                width={180}
+                height={72}
+                className="h-12 md:h-14 lg:h-16 w-auto object-contain"
+                priority
+                suppressHydrationWarning
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-6">
             {navLinks.map((link) => (
-              <Link
+              <motion.div
                 key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground transition-colors hover:text-primary relative group"
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-              </Link>
+                <Link
+                  href={link.href}
+                  className="text-sm font-medium text-foreground transition-colors hover:text-primary relative group block"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              </motion.div>
             ))}
             <Link href="/contact">
               <Button className="ml-4 hover:scale-105 transition-transform">

@@ -20,6 +20,7 @@ export interface Service {
   }[];
   pricing: string;
   imageAlt: string;
+  image?: string;
 }
 
 export const services: Service[] = [
@@ -76,6 +77,7 @@ export const services: Service[] = [
     ],
     pricing: "Contact us for a free quote. Pricing depends on hedge length, height, and trimming frequency.",
     imageAlt: "Professional hedge trimming service in Southern Tasmania",
+    image: "/treepruning/Attachment.jpeg",
   },
   {
     id: "tree-pruning",
@@ -140,6 +142,7 @@ export const services: Service[] = [
     ],
     pricing: "Contact us for a free quote. Pricing depends on tree size, pruning type, and number of trees.",
     imageAlt: "Professional tree pruning and reduction service in Southern Tasmania",
+    image: "/treepruning/2E0F9B34-D929-4F70-B4E2-5833C3F1B866.jpeg",
   },
   {
     id: "tree-removal",
@@ -192,7 +195,8 @@ export const services: Service[] = [
       },
     ],
     pricing: "Contact us for a free quote. Pricing depends on tree size, location, and complexity.",
-    imageAlt: "Professional tree removal service in Southern Tasmania",
+    imageAlt: "Professional tree removal service with crane in Southern Tasmania",
+    image: "/Crane jobs/IMG_2768.jpeg",
   },
   {
     id: "stump-grinding",
@@ -247,6 +251,7 @@ export const services: Service[] = [
     ],
     pricing: "Contact us for a free quote. Pricing is based on stump diameter and accessibility.",
     imageAlt: "Professional stump grinding service in Southern Tasmania",
+    image: "/Stump grinding : removing /IMG_6335.jpeg",
   },
 ];
 

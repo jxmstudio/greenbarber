@@ -5,18 +5,61 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Service } from "@/data/services";
+import { useState } from "react";
 
 interface ServicePageContentProps {
   service: Service;
 }
 
 export function ServicePageContent({ service }: ServicePageContentProps) {
+  const [imageError, setImageError] = useState(false);
+  
+  // Helper to encode file paths with spaces and special characters
+  const encodeImagePath = (path: string) => {
+    return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+  };
+
   return (
     <>
+      {/* Service Hero Image with Title */}
+      <section className="relative h-[400px] md:h-[600px] overflow-hidden">
+        {service.image && !imageError ? (
+          <>
+            <Image
+              src={encodeImagePath(service.image)}
+              alt={service.imageAlt}
+              fill
+              className="object-cover"
+              priority
+              onError={() => setImageError(true)}
+              unoptimized
+              suppressHydrationWarning
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/20" />
+        )}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-2xl" style={{ fontFamily: 'var(--font-display)' }}>
+              {service.name}
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-lg">
+              {service.shortDescription}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Service Details */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #fafbf9 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
@@ -155,18 +198,21 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              Frequently Asked Questions
-            </h2>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #f8f9f7 0%, #f0f4ed 50%, #e8ede5 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-wood opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                Frequently Asked Questions
+              </h2>
           </motion.div>
           <div className="max-w-3xl mx-auto space-y-4">
             {service.faq.map((item, index) => (

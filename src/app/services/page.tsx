@@ -37,17 +37,18 @@ export default function ServicesPage() {
     <>
       {/* Hero Section */}
       <section 
-        className="text-white py-16 md:py-24"
-        style={{
-          background: 'linear-gradient(to bottom right, #2d5016, #4a7c3a, #6b9f5a)'
-        }}
+        className="text-white py-16 md:py-24 relative overflow-hidden bg-layered-gradient"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 pattern-organic opacity-40" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-block mb-4">
+              <div className="h-1 w-16 bg-white/30 mx-auto rounded-full" />
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Professional Tree Services in Southern Tasmania
             </h1>
@@ -63,8 +64,11 @@ export default function ServicesPage() {
       <ServiceSection services={services} showViewAll={false} />
 
       {/* Additional Information */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #f8f9f7 0%, #f0f4ed 50%, #e8ede5 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-wood opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -73,6 +77,9 @@ export default function ServicesPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-8"
             >
+              <div className="inline-block mb-4">
+                <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
                 Why Choose The Green Barber?
               </h2>

@@ -10,12 +10,10 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
       <section 
-        className="text-white py-16 md:py-24"
-        style={{
-          background: 'linear-gradient(to bottom right, #2d5016, #4a7c3a, #6b9f5a)'
-        }}
+        className="text-white py-16 md:py-24 relative overflow-hidden bg-layered-gradient"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 pattern-organic opacity-40" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,8 +28,11 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #fafbf9 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div

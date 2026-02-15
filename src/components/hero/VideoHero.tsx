@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface VideoHeroProps {
   title?: string;
@@ -18,30 +19,23 @@ export function VideoHero({
 }: VideoHeroProps) {
   return (
     <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image/Video Placeholder */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(to bottom right, #2d5016, #4a7c3a, #6b9f5a)'
-        }}
-      >
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      {/* Background Video */}
+      <div className="absolute inset-0 bg-primary">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectFit: 'cover' }}
+          suppressHydrationWarning
         >
-          <div 
-            className="absolute inset-0" 
-            style={{
-              background: 'linear-gradient(to bottom right, rgba(107, 159, 90, 0.2), rgba(74, 124, 58, 0.2), rgba(45, 80, 22, 0.2))'
-            }}
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-black/40" />
-        {/* Placeholder for background image - replace with actual image */}
-        <div className="absolute inset-0 bg-[url('/tree-services-hero.jpg')] bg-cover bg-center opacity-30" />
+          <source src="/clip2.mp4" type="video/mp4" />
+        </video>
+        {/* Enhanced overlay gradient for better text readability with atmospheric green tint */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10" />
+        <div className="absolute inset-0 pattern-organic opacity-30" />
       </div>
 
       {/* Content */}
@@ -51,7 +45,25 @@ export function VideoHero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-8 flex justify-center"
+            suppressHydrationWarning
+          >
+            <Image
+              src="/logo.jpg"
+              alt="The Green Barber Logo"
+              width={300}
+              height={120}
+              className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+              priority
+              suppressHydrationWarning
+            />
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-display)' }}>
             {title}
           </h1>
           <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">

@@ -3,7 +3,7 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "The Green Barber",
-    image: "https://thegreenbarber.com.au/logo.png",
+    image: "https://thegreenbarber.com.au/logo.jpg",
     "@id": "https://thegreenbarber.com.au",
     url: "https://thegreenbarber.com.au",
     telephone: "0433804284",
@@ -30,6 +30,8 @@ export function LocalBusinessSchema() {
     },
     sameAs: [
       "https://www.facebook.com/profile.php?id=61573561687111",
+      "https://www.instagram.com/the_green_barber_tas/",
+      "https://share.google/NOEKTr9PjbX1xX0Vv",
     ],
     areaServed: [
       {

@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContactStrip } from "@/components/common/ContactStrip";
 import { motion } from "framer-motion";
-import { Award, Users, Shield, MapPin, CheckCircle2 } from "lucide-react";
+import { Award, Users, Shield, MapPin, CheckCircle2, FileCheck, BadgeCheck } from "lucide-react";
 
 export default function AboutPage() {
   const serviceAreas = [
@@ -48,17 +48,18 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section 
-        className="text-white py-16 md:py-24"
-        style={{
-          background: 'linear-gradient(to bottom right, #2d5016, #4a7c3a, #6b9f5a)'
-        }}
+        className="text-white py-16 md:py-24 relative overflow-hidden bg-layered-gradient"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 pattern-organic opacity-40" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-block mb-4">
+              <div className="h-1 w-16 bg-white/30 mx-auto rounded-full" />
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About The Green Barber</h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl">
               Professional tree services throughout Southern Tasmania. Trusted by homeowners and businesses
@@ -69,8 +70,11 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #fafbf9 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -104,8 +108,11 @@ export default function AboutPage() {
       </section>
 
       {/* Conrad's Background */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #f8f9f7 0%, #f0f4ed 50%, #e8ede5 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-wood opacity-15" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -113,7 +120,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Meet Conrad</h2>
+              <div className="text-center mb-6">
+                <div className="inline-block mb-4">
+                  <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Meet Conrad</h2>
+              </div>
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="space-y-4 text-gray-700">
@@ -143,8 +155,11 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #f8f9f7 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-25" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,6 +167,9 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
+            <div className="inline-block mb-4">
+              <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Why Choose The Green Barber?
             </h2>
@@ -180,9 +198,130 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Certifications & Credentials */}
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #f0f4ed 0%, #e8ede5 50%, #f8f9f7 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-wood opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <div className="inline-block mb-4">
+                <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                Certifications & Credentials
+              </h2>
+              <p className="text-lg text-gray-600">
+                We maintain the highest standards of professionalism and safety
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary rounded-lg">
+                        <BadgeCheck className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle>Certified Arborists</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      Our team includes qualified arborists with formal certification and training in arboriculture. We stay current with industry best practices, safety standards, and continuing education requirements.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary rounded-lg">
+                        <Shield className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle>Fully Insured</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      We carry comprehensive public liability insurance to protect your property and our team during all operations. Our insurance coverage meets industry standards and provides peace of mind for every project.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary rounded-lg">
+                        <FileCheck className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle>Licensed & Compliant</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      All our operations comply with local council regulations and Tasmanian state requirements. We understand permit processes and can assist with applications when needed for protected or heritage trees.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary rounded-lg">
+                        <Award className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle>Industry Memberships</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      We maintain active involvement in the arboriculture industry, staying connected with professional associations and keeping up-to-date with the latest techniques, equipment, and safety protocols.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(to bottom, #f8f9f7 0%, #f0f4ed 100%)'
+      }}>
+        <div className="absolute inset-0 pattern-organic opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -191,6 +330,9 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-8"
             >
+              <div className="inline-block mb-4">
+                <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">Service Areas</h2>
             </motion.div>
             <Card className="hover:shadow-lg transition-shadow">
