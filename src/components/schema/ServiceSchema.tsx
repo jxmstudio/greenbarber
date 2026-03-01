@@ -12,7 +12,7 @@ export function ServiceSchema({ serviceName, serviceDescription, serviceUrl }: S
     provider: {
       "@type": "LocalBusiness",
       name: "The Green Barber",
-      url: "https://thegreenbarber.com.au",
+      url: "https://greenbarbertas.com.au",
     },
     areaServed: {
       "@type": "City",

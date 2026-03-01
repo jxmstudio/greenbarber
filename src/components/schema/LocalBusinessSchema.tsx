@@ -3,9 +3,9 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "The Green Barber",
-    image: "https://thegreenbarber.com.au/logo.jpg",
-    "@id": "https://thegreenbarber.com.au",
-    url: "https://thegreenbarber.com.au",
+    image: "https://greenbarbertas.com.au/logo.jpg",
+    "@id": "https://greenbarbertas.com.au",
+    url: "https://greenbarbertas.com.au",
     telephone: "0433804284",
     priceRange: "$$",
     address: {

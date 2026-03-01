@@ -4,7 +4,7 @@ Allow: /
 Disallow: /api/
 
 # Host
-Host: https://thegreenbarber.com.au
+Host: https://greenbarbertas.com.au
 
 # Sitemaps
-Sitemap: https://thegreenbarber.com.au/sitemap.xml
+Sitemap: https://greenbarbertas.com.au/sitemap.xml

@@ -27,6 +27,7 @@ const crimsonPro = Crimson_Pro({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://greenbarbertas.com.au"),
   title: "The Green Barber | Professional Tree Services in Southern Tasmania",
   description:
     "Expert hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania. Fully insured arborists serving Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, West Hobart, and more.",
@@ -39,12 +40,16 @@ export const metadata: Metadata = {
     "arborist Southern Tasmania",
     "tree reduction Southern Tasmania",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "The Green Barber | Professional Tree Services in Southern Tasmania",
     description:
       "Expert hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania.",
     type: "website",
     locale: "en_AU",
+    url: "https://greenbarbertas.com.au",
   },
 };
 

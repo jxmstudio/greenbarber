@@ -92,7 +92,7 @@ This message was sent from the contact form on The Green Barber website.
     if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
       const resend = new Resend(process.env.RESEND_API_KEY);
       await resend.emails.send({
-        from: process.env.FROM_EMAIL || "noreply@thegreenbarber.com.au",
+        from: process.env.FROM_EMAIL || "noreply@greenbarbertas.com.au",
         to: process.env.CONTACT_EMAIL,
         subject: `New Enquiry: ${serviceTypeLabels[validatedData.serviceType] || "General Enquiry"} - ${validatedData.name}`,
         text: emailContent,
@@ -100,7 +100,7 @@ This message was sent from the contact form on The Green Barber website.
     } else {
       // Log to console if Resend is not configured
       console.log("Email would be sent:", {
-        to: process.env.CONTACT_EMAIL || "info@thegreenbarber.com.au",
+        to: process.env.CONTACT_EMAIL || "info@greenbarbertas.com.au",
         subject: `New Enquiry: ${serviceTypeLabels[validatedData.serviceType] || "General Enquiry"}`,
         content: emailContent,
       });

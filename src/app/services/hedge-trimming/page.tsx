@@ -31,7 +31,7 @@ export default function HedgeTrimmingPage() {
     return <div>Service not found</div>;
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thegreenbarber.com.au";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://greenbarbertas.com.au";
 
   return (
     <>

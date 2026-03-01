@@ -19,7 +19,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing and using thegreenbarber.com.au ("the Website") and engaging The Green Barber ("we", "us", or "our") for tree services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                By accessing and using greenbarbertas.com.au ("the Website") and engaging The Green Barber ("we", "us", or "our") for tree services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
               </p>
             </section>
 

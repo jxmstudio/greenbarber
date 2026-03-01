@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { services } from "@/data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thegreenbarber.com.au";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://greenbarbertas.com.au";
 
   const routes = [
     "",

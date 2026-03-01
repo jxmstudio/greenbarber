@@ -45,10 +45,10 @@ npm start
 Create a `.env.local` file in the root directory:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://thegreenbarber.com.au
+NEXT_PUBLIC_SITE_URL=https://greenbarbertas.com.au
 RESEND_API_KEY=your_resend_api_key
 CONTACT_EMAIL=thegreenbarbertas@gmail.com
-FROM_EMAIL=noreply@thegreenbarber.com.au
+FROM_EMAIL=noreply@greenbarbertas.com.au
 ```
 
 ## Deployment to Vercel
