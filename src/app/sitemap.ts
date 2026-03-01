@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { services } from "@/data/services";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://greenbarbertas.com.au";
+  const baseUrl = SITE_URL;
 
   const routes = [
     "",

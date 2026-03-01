@@ -4,6 +4,7 @@ import { ContactStrip } from "@/components/common/ContactStrip";
 import { ServiceSchema } from "@/components/schema/ServiceSchema";
 import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Stump Grinding in Southern Tasmania | The Green Barber",
@@ -31,7 +32,7 @@ export default function StumpGrindingPage() {
     return <div>Service not found</div>;
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://greenbarbertas.com.au";
+  const baseUrl = SITE_URL;
 
   return (
     <>
