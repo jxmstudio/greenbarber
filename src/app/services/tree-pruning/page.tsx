@@ -4,6 +4,7 @@ import { ContactStrip } from "@/components/common/ContactStrip";
 import { ServiceSchema } from "@/components/schema/ServiceSchema";
 import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
+import { FAQSchema } from "@/components/schema/FAQSchema";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function TreePruningPage() {
         serviceDescription={service.description}
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
+      <FAQSchema faqs={service.faq} />
       <AnimatedHero
         title={`${service.name} in Southern Tasmania`}
         description={service.description}

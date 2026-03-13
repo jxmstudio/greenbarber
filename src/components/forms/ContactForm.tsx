@@ -14,7 +14,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Phone } from "lucide-react";
+
+// Extend window to type the gtag function injected by GA4 in layout.tsx
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,6 +49,7 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
     formState: { errors },
     setValue,
     watch,
+    reset,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -69,14 +77,25 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
         throw new Error("Failed to submit form");
       }
 
+      // Fix 6a: Fire GA4 conversion event instead of reloading the page.
+      // This allows analytics to record the conversion without losing the session.
+      // Replace 'generate_lead' with a custom event name if configured in GA4.
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "contact_form",
+          event_label: data.serviceType,
+          value: 1,
+        });
+      }
+
       setSubmitStatus("success");
+      reset(); // Clear the form fields
       if (onSubmit) {
         onSubmit(data);
       }
-      // Reset form after successful submission
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      // Fix 6b: Removed window.location.reload() — it destroyed the GA4 conversion
+      // event attribution and caused a jarring UX on mobile. The inline success
+      // state below is the correct pattern.
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
@@ -85,39 +104,86 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
     }
   };
 
+  // Fix 6c: Show the full success state instead of the form after submission
+  if (submitStatus === "success") {
+    return (
+      <div
+        role="alert"
+        aria-live="polite"
+        className="flex flex-col items-center justify-center gap-6 py-12 text-center"
+      >
+        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100">
+          <CheckCircle2 className="h-8 w-8 text-green-600" aria-hidden="true" />
+        </div>
+        <div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Enquiry Sent!</h3>
+          <p className="text-gray-600 max-w-sm">
+            Thank you for reaching out. We&apos;ll get back to you within one business day.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3 mt-2">
+          <Button
+            variant="outline"
+            onClick={() => setSubmitStatus("idle")}
+          >
+            Send Another Enquiry
+          </Button>
+          <a href="tel:0433804284">
+            <Button>
+              <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
+              Call Us Now
+            </Button>
+          </a>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6" noValidate>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Name */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Name <span className="text-destructive">*</span>
+            Name <span className="text-destructive" aria-hidden="true">*</span>
           </label>
           <Input
             id="name"
             {...register("name")}
             placeholder="Your full name"
+            autoComplete="name"
+            aria-required="true"
+            aria-invalid={errors.name ? "true" : "false"}
+            aria-describedby={errors.name ? "name-error" : undefined}
             className={errors.name ? "border-destructive" : ""}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
+            <p id="name-error" role="alert" className="mt-1 text-sm text-destructive">
+              {errors.name.message}
+            </p>
           )}
         </div>
 
         {/* Email */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email <span className="text-destructive">*</span>
+            Email <span className="text-destructive" aria-hidden="true">*</span>
           </label>
           <Input
             id="email"
             type="email"
             {...register("email")}
             placeholder="your.email@example.com"
+            autoComplete="email"
+            aria-required="true"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
             className={errors.email ? "border-destructive" : ""}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
+            <p id="email-error" role="alert" className="mt-1 text-sm text-destructive">
+              {errors.email.message}
+            </p>
           )}
         </div>
       </div>
@@ -126,31 +192,39 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
         {/* Phone */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium mb-2">
-            Phone <span className="text-destructive">*</span>
+            Phone <span className="text-destructive" aria-hidden="true">*</span>
           </label>
           <Input
             id="phone"
             type="tel"
             {...register("phone")}
             placeholder="0433 804 284"
+            autoComplete="tel"
+            aria-required="true"
+            aria-invalid={errors.phone ? "true" : "false"}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
             className={errors.phone ? "border-destructive" : ""}
           />
           {errors.phone && (
-            <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>
+            <p id="phone-error" role="alert" className="mt-1 text-sm text-destructive">
+              {errors.phone.message}
+            </p>
           )}
         </div>
 
         {/* Service Type */}
         <div>
           <label htmlFor="serviceType" className="block text-sm font-medium mb-2">
-            Service Type <span className="text-destructive">*</span>
+            Service Type <span className="text-destructive" aria-hidden="true">*</span>
           </label>
           <Select
             value={serviceType}
-            onValueChange={(value) => setValue("serviceType", value)}
+            onValueChange={(value) => setValue("serviceType", value, { shouldValidate: true })}
           >
             <SelectTrigger
               id="serviceType"
+              aria-required="true"
+              aria-invalid={errors.serviceType ? "true" : "false"}
               className={errors.serviceType ? "border-destructive" : ""}
             >
               <SelectValue placeholder="Select a service" />
@@ -164,7 +238,9 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
             </SelectContent>
           </Select>
           {errors.serviceType && (
-            <p className="mt-1 text-sm text-destructive">{errors.serviceType.message}</p>
+            <p role="alert" className="mt-1 text-sm text-destructive">
+              {errors.serviceType.message}
+            </p>
           )}
         </div>
       </div>
@@ -172,7 +248,7 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
       {/* Urgency (Optional) */}
       <div>
         <label htmlFor="urgency" className="block text-sm font-medium mb-2">
-          Urgency (Optional)
+          Urgency <span className="text-gray-400 font-normal">(optional)</span>
         </label>
         <Select
           value={watch("urgency")}
@@ -193,32 +269,39 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message <span className="text-destructive">*</span>
+          Message <span className="text-destructive" aria-hidden="true">*</span>
         </label>
         <Textarea
           id="message"
           {...register("message")}
           placeholder="Tell us about your tree service needs..."
           rows={6}
+          aria-required="true"
+          aria-invalid={errors.message ? "true" : "false"}
+          aria-describedby={errors.message ? "message-error" : undefined}
           className={errors.message ? "border-destructive" : ""}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
+          <p id="message-error" role="alert" className="mt-1 text-sm text-destructive">
+            {errors.message.message}
+          </p>
         )}
       </div>
 
-      {/* Submit Status */}
-      {submitStatus === "success" && (
-        <div className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-md text-green-800">
-          <CheckCircle2 className="h-5 w-5" />
-          <p>Thank you! Your message has been sent. We'll get back to you soon.</p>
-        </div>
-      )}
-
+      {/* Error state */}
       {submitStatus === "error" && (
-        <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-md text-red-800">
-          <AlertCircle className="h-5 w-5" />
-          <p>Something went wrong. Please try again or call us directly.</p>
+        <div
+          role="alert"
+          className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-md text-red-800"
+        >
+          <AlertCircle className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+          <p>
+            Something went wrong. Please try again or{" "}
+            <a href="tel:0433804284" className="underline font-medium">
+              call us directly
+            </a>
+            .
+          </p>
         </div>
       )}
 
@@ -228,14 +311,13 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
         size="lg"
         className="w-full md:w-auto"
         disabled={isSubmitting}
+        aria-busy={isSubmitting}
       >
         {isSubmitting ? (
-          <>
-            <span className="mr-2">Sending...</span>
-          </>
+          <span>Sending&hellip;</span>
         ) : (
           <>
-            <Send className="mr-2 h-4 w-4" />
+            <Send className="mr-2 h-4 w-4" aria-hidden="true" />
             Send Message
           </>
         )}
@@ -243,4 +325,3 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
     </form>
   );
 }
-

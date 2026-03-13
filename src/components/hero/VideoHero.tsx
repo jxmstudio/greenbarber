@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -17,39 +17,61 @@ export function VideoHero({
   subtitle = "Expert arborists providing hedge trimming, tree pruning and reductions, tree removal, and stump grinding services throughout Southern Tasmania.",
   showCTA = true,
 }: VideoHeroProps) {
+  // Respect prefers-reduced-motion: swap video for a static gradient and skip animations
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 bg-primary">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectFit: 'cover' }}
-          suppressHydrationWarning
-        >
-          <source src="/clip2.mp4" type="video/mp4" />
-        </video>
+        {prefersReducedMotion ? (
+          // Static fallback — no motion, no video autoplay
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(135deg, #1a3d1a 0%, #2d5016 40%, #4a7c3a 100%)" }}
+            aria-hidden="true"
+          />
+        ) : (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            // poster prevents blank screen while video buffers.
+            // Generate it with: ffmpeg -i public/clip2.mp4 -ss 00:00:01 -frames:v 1 public/hero-poster.jpg
+            poster="/hero-poster.jpg"
+            preload="none"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectFit: "cover" }}
+            suppressHydrationWarning
+            aria-hidden="true"
+          >
+            <source src="/clip2.mp4" type="video/mp4" />
+          </video>
+        )}
         {/* Enhanced overlay gradient for better text readability with atmospheric green tint */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10" />
-        <div className="absolute inset-0 pattern-organic opacity-30" />
+        {!prefersReducedMotion && (
+          <div className="absolute inset-0 pattern-organic opacity-30" />
+        )}
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.6,
+              delay: prefersReducedMotion ? 0 : 0.1,
+            }}
             className="mb-8 flex justify-center"
             suppressHydrationWarning
           >
@@ -63,7 +85,10 @@ export function VideoHero({
               suppressHydrationWarning
             />
           </motion.div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             {title}
           </h1>
           <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">
@@ -72,9 +97,12 @@ export function VideoHero({
 
           {showCTA && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.6,
+                delay: prefersReducedMotion ? 0 : 0.2,
+              }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href="/contact">
@@ -98,22 +126,24 @@ export function VideoHero({
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-3 bg-white rounded-full mt-2"
-          />
-        </div>
-      </motion.div>
+      {/* Scroll Indicator — hidden when reduced motion is preferred */}
+      {!prefersReducedMotion && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          aria-hidden="true"
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-3 bg-white rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
-
