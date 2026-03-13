@@ -28,6 +28,17 @@ export function Navigation() {
     { href: "/services/stump-grinding", label: "Stump Grinding" },
   ];
 
+  const locationLinks = [
+    { href: "/services/hobart", label: "Hobart" },
+    { href: "/services/kingborough", label: "Kingborough" },
+    { href: "/services/huon-valley", label: "Huon Valley" },
+    { href: "/services/clarence", label: "Clarence" },
+    { href: "/services/glenorchy", label: "Glenorchy" },
+    { href: "/services/brighton", label: "Brighton" },
+    { href: "/services/sorell", label: "Sorell" },
+    { href: "/services/derwent-valley", label: "Derwent Valley" },
+  ];
+
   return (
     <nav
       className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm"
@@ -170,11 +181,33 @@ export function Navigation() {
                   ))}
                 </div>
 
+                <div className="mt-4 border-t pt-4">
+                  <p className="px-3 py-2 text-sm font-semibold text-foreground">Service Areas</p>
+                  <div className="grid grid-cols-2 gap-0">
+                    {locationLinks.map((link, index) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: (navLinks.length + serviceLinks.length + index) * 0.05 }}
+                      >
+                        <Link
+                          href={link.href}
+                          className="block rounded-md px-3 py-1.5 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Mobile menu CTAs */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (navLinks.length + serviceLinks.length) * 0.1 }}
+                  transition={{ delay: (navLinks.length + serviceLinks.length + locationLinks.length) * 0.05 }}
                   className="mt-4 flex flex-col gap-2"
                 >
                   <a

@@ -8,7 +8,8 @@ import { FacebookReviews } from "@/components/reviews/FacebookReviews";
 import { services } from "@/data/services";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Users, MapPin } from "lucide-react";
+import { CheckCircle2, Award, Users, MapPin, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   const stats = [
@@ -61,15 +62,15 @@ export default function HomePage() {
     },
   ];
 
-  const serviceAreas = [
-    "Dodges Ferry",
-    "Carlton Beach",
-    "Eagle Hawk Neck",
-    "Midway Point",
-    "Sorrell",
-    "Hobart",
-    "Howrah",
-    "West Hobart",
+  const locationAreas = [
+    { name: "Hobart", slug: "hobart", suburbs: "Sandy Bay, Battery Point, North Hobart" },
+    { name: "Kingborough", slug: "kingborough", suburbs: "Kingston, Blackmans Bay, Margate" },
+    { name: "Huon Valley", slug: "huon-valley", suburbs: "Huonville, Geeveston, Cygnet" },
+    { name: "Clarence", slug: "clarence", suburbs: "Howrah, Bellerive, Rokeby" },
+    { name: "Glenorchy", slug: "glenorchy", suburbs: "Moonah, New Town, Claremont" },
+    { name: "Brighton", slug: "brighton", suburbs: "Old Beach, Pontville, Bagdad" },
+    { name: "Sorell", slug: "sorell", suburbs: "Dodges Ferry, Carlton Beach, Midway Point" },
+    { name: "Derwent Valley", slug: "derwent-valley", suburbs: "New Norfolk, Bushy Park, Maydena" },
   ];
 
   return (
@@ -172,41 +173,37 @@ export default function HomePage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Service Areas</h2>
             <p className="text-lg text-gray-600">
-              We proudly serve Southern Tasmania, with a focus on Dodges Ferry, Carlton Beach, Eagle Hawk Neck, Midway Point, Sorrell, Hobart, Howrah, and West Hobart
+              Professional tree services throughout Southern Tasmania — click your area for local information and pricing.
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {serviceAreas.map((area, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="flex items-center text-gray-700"
-                      >
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>{area}</span>
-                      </motion.div>
-                    ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {locationAreas.map((area, index) => (
+              <motion.div
+                key={area.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Link
+                  href={`/services/${area.slug}`}
+                  className="group flex flex-col gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-4 shadow-sm hover:border-primary hover:shadow-md transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                      {area.name}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" aria-hidden="true" />
                   </div>
-                  <p className="mt-6 text-center text-gray-600">
-                    And many more surrounding suburbs. Contact us to confirm we service your area!
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  <span className="text-xs text-gray-500">{area.suburbs}</span>
+                </Link>
+              </motion.div>
+            ))}
           </div>
+          <p className="mt-6 text-center text-sm text-gray-500">
+            Don&apos;t see your suburb? <Link href="/contact" className="text-primary hover:underline">Contact us</Link> — we likely service your area.
+          </p>
         </div>
       </section>
 
