@@ -19,6 +19,7 @@ export interface Service {
     answer: string;
   }[];
   pricing: string;
+  pricingFrom?: string;
   imageAlt: string;
   image?: string;
 }
@@ -76,6 +77,7 @@ export const services: Service[] = [
       },
     ],
     pricing: "Contact us for a free quote. Pricing depends on hedge length, height, and trimming frequency.",
+    pricingFrom: "from $150",
     imageAlt: "Professional hedge trimming service in Southern Tasmania",
     image: "/treepruning/Attachment.jpeg",
   },
@@ -141,6 +143,7 @@ export const services: Service[] = [
       },
     ],
     pricing: "Contact us for a free quote. Pricing depends on tree size, pruning type, and number of trees.",
+    pricingFrom: "from $200",
     imageAlt: "Professional tree pruning and reduction service in Southern Tasmania",
     image: "/treepruning/2E0F9B34-D929-4F70-B4E2-5833C3F1B866.jpeg",
   },
@@ -195,6 +198,7 @@ export const services: Service[] = [
       },
     ],
     pricing: "Contact us for a free quote. Pricing depends on tree size, location, and complexity.",
+    pricingFrom: "from $350",
     imageAlt: "Professional tree removal service with crane in Southern Tasmania",
     image: "/Crane jobs/IMG_2768.jpeg",
   },
@@ -250,8 +254,11 @@ export const services: Service[] = [
       },
     ],
     pricing: "Contact us for a free quote. Pricing is based on stump diameter and accessibility.",
+    pricingFrom: "from $150",
     imageAlt: "Professional stump grinding service in Southern Tasmania",
-    image: "/Stump grinding : removing /IMG_6335.jpeg",
+    // Folder was renamed from "Stump grinding : removing " to "stump-grinding-removing"
+    // to eliminate the spaces and colon that caused encoding issues and potential 404s.
+    image: "/stump-grinding-removing/IMG_6335.jpeg",
   },
 ];
 

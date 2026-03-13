@@ -25,11 +25,13 @@ export function VideoHero({
       {/* Background Video */}
       <div className="absolute inset-0 bg-primary">
         {prefersReducedMotion ? (
-          // Static fallback — no motion, no video autoplay
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(135deg, #1a3d1a 0%, #2d5016 40%, #4a7c3a 100%)" }}
+          // Static fallback — poster image instead of animated video
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/hero-poster.jpg"
+            alt=""
             aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
           <video

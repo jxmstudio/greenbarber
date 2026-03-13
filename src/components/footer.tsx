@@ -53,23 +53,23 @@ export function Footer() {
             </p>
             <div className="space-y-2">
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
+                <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
                 <a href="tel:0433804284" className="hover:text-primary transition-colors">
                   0433 804 284
                 </a>
               </div>
               <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2" />
+                <Mail className="h-4 w-4 mr-2" aria-hidden="true" />
                 <a href="mailto:thegreenbarbertas@gmail.com" className="hover:text-primary transition-colors">
                   thegreenbarbertas@gmail.com
                 </a>
               </div>
               <div className="flex items-start">
-                <MapPin className="h-4 w-4 mr-2 mt-1" />
+                <MapPin className="h-4 w-4 mr-2 mt-1" aria-hidden="true" />
                 <span>70 Carlton Beach Rd, Dodges Ferry, TAS, Australia</span>
               </div>
               <div className="flex items-center">
-                <Clock className="h-4 w-4 mr-2" />
+                <Clock className="h-4 w-4 mr-2" aria-hidden="true" />
                 <span>Mon - Sat: 7:00 AM - 6:00 PM</span>
               </div>
               <div className="flex flex-col space-y-2 mt-4">
@@ -79,7 +79,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-300 hover:text-primary transition-colors"
                 >
-                  <Facebook className="h-4 w-4 mr-2 text-gray-300" />
+                  <Facebook className="h-4 w-4 mr-2 text-gray-300" aria-hidden="true" />
                   <span className="text-gray-300">Follow us on Facebook</span>
                 </a>
                 <a
@@ -89,7 +89,7 @@ export function Footer() {
                   className="flex items-center text-gray-300 hover:text-primary transition-colors !text-gray-300"
                   style={{ color: '#d1d5db' }}
                 >
-                  <Instagram className="h-4 w-4 mr-2" style={{ color: '#d1d5db' }} />
+                  <Instagram className="h-4 w-4 mr-2" style={{ color: '#d1d5db' }} aria-hidden="true" />
                   <span style={{ color: '#d1d5db' }}>Follow us on Instagram</span>
                 </a>
                 <a
@@ -98,7 +98,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-300 hover:text-primary transition-colors"
                 >
-                  <Globe className="h-4 w-4 mr-2 text-gray-300" />
+                  <Globe className="h-4 w-4 mr-2 text-gray-300" aria-hidden="true" />
                   <span className="text-gray-300">Visit us on Google</span>
                 </a>
               </div>

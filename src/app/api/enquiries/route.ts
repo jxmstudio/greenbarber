@@ -9,6 +9,9 @@ const enquirySchema = z.object({
   serviceType: z.string().min(1),
   message: z.string().min(10),
   urgency: z.string().optional(),
+  // Honeypot field: hidden from real users, bots fill it automatically.
+  // Any submission with a non-empty `website` field is silently rejected.
+  website: z.string().optional(),
 });
 
 // Helper: append lead data to Google Sheet via Apps Script webhook
@@ -55,6 +58,16 @@ export async function POST(request: NextRequest) {
 
     // Validate the request body
     const validatedData = enquirySchema.parse(body);
+
+    // Honeypot check: real users never fill the hidden `website` field.
+    // Return 200 to avoid alerting bots that they were caught.
+    if (validatedData.website) {
+      return NextResponse.json({ message: "Enquiry submitted successfully" }, { status: 200 });
+    }
+
+    // TODO: Add IP-based rate limiting for production.
+    // Recommended: @upstash/ratelimit + @upstash/redis
+    // Example: https://upstash.com/docs/oss/sdks/ts/ratelimit/overview
 
     // Prepare email content
     const serviceTypeLabels: Record<string, string> = {

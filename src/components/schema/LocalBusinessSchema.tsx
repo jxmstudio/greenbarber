@@ -28,6 +28,15 @@ export function LocalBusinessSchema() {
       opens: "07:00",
       closes: "18:00",
     },
+    // aggregateRating enables star ratings in Google SERP for branded and local searches.
+    // TODO: Update reviewCount manually as new reviews are posted on Facebook/Google.
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: "24",
+    },
     sameAs: [
       "https://www.facebook.com/profile.php?id=61573561687111",
       "https://www.instagram.com/the_green_barber_tas/",

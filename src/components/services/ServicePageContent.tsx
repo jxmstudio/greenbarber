@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2 } from "lucide-react";
+import { Phone, CheckCircle2, DollarSign } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Service } from "@/data/services";
@@ -145,10 +145,19 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                     <CardTitle>Pricing</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 mb-4">{service.pricing}</p>
+                    {service.pricingFrom && (
+                      <div className="flex items-center gap-2 mb-3">
+                        <DollarSign className="h-5 w-5 text-primary" aria-hidden="true" />
+                        <span className="text-2xl font-bold text-primary">{service.pricingFrom}</span>
+                      </div>
+                    )}
+                    <p className="text-gray-700 mb-2">{service.pricing}</p>
+                    <p className="text-sm text-gray-500 mb-4">
+                      Final price confirmed after on-site inspection. Free quotes available.
+                    </p>
                     <Link href="/contact">
                       <Button className="hover:scale-105 transition-transform">
-                        <Phone className="mr-2 h-4 w-4" />
+                        <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                         Get Free Quote
                       </Button>
                     </Link>
@@ -172,7 +181,7 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                 <CardContent className="space-y-4">
                   <Link href="/contact">
                     <Button className="w-full hover:scale-105 transition-transform">
-                      <Phone className="mr-2 h-4 w-4" />
+                      <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                       Request Quote
                     </Button>
                   </Link>

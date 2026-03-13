@@ -30,6 +30,9 @@ const contactFormSchema = z.object({
   serviceType: z.string().min(1, "Please select a service type"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   urgency: z.string().optional(),
+  // Honeypot: hidden from real users via CSS, bots fill it automatically.
+  // The API silently discards any submission where this field is non-empty.
+  website: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -141,6 +144,19 @@ export function ContactForm({ onSubmit, defaultServiceType }: ContactFormProps) 
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6" noValidate>
+      {/* Honeypot field — hidden from real users, bots fill it.
+          Must be visually hidden with CSS, NOT display:none (some bots check for that). */}
+      <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          autoComplete="off"
+          tabIndex={-1}
+          {...register("website")}
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Name */}
         <div>

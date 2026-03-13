@@ -5,6 +5,7 @@ import { ServiceSchema } from "@/components/schema/ServiceSchema";
 import { AnimatedHero } from "@/components/common/AnimatedHero";
 import { ServicePageContent } from "@/components/services/ServicePageContent";
 import { FAQSchema } from "@/components/schema/FAQSchema";
+import { ServiceBreadcrumb } from "@/components/schema/BreadcrumbSchema";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function TreePruningPage() {
         serviceUrl={`${baseUrl}/services/${service.slug}`}
       />
       <FAQSchema faqs={service.faq} />
+      <ServiceBreadcrumb serviceName={service.name} serviceSlug={service.slug} />
       <AnimatedHero
         title={`${service.name} in Southern Tasmania`}
         description={service.description}

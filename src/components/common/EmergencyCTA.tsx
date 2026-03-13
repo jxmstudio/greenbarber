@@ -22,7 +22,7 @@ export function EmergencyCTA() {
           <div className="flex items-start gap-4 text-center md:text-left">
             <div className="flex-shrink-0">
               <div className="bg-white/20 rounded-full p-3">
-                <AlertTriangle className="h-8 w-8 md:h-10 md:w-10" />
+                <AlertTriangle className="h-8 w-8 md:h-10 md:w-10" aria-hidden="true" />
               </div>
             </div>
             <div>
@@ -40,7 +40,7 @@ export function EmergencyCTA() {
                 size="lg"
                 className="bg-white text-red-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
-                <Phone className="mr-2 h-5 w-5" />
+                <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
                 Call Emergency: 0433 804 284
               </Button>
             </Link>

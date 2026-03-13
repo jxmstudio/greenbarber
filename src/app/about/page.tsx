@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContactStrip } from "@/components/common/ContactStrip";
 import { motion } from "framer-motion";
-import { Award, Users, Shield, MapPin, CheckCircle2, FileCheck, BadgeCheck } from "lucide-react";
+import { Award, Users, Shield, MapPin, CheckCircle2, FileCheck, BadgeCheck, Building2 } from "lucide-react";
 
 export default function AboutPage() {
   const serviceAreas = [
@@ -222,6 +222,18 @@ export default function AboutPage() {
                 We maintain the highest standards of professionalism and safety
               </p>
             </motion.div>
+            {/* Trust signal strip: ABN + insurance */}
+            <div className="flex flex-wrap justify-center gap-6 mb-10">
+              <div className="flex items-center gap-2 bg-white rounded-lg px-5 py-3 shadow-sm border border-gray-100">
+                <Building2 className="h-5 w-5 text-primary" aria-hidden="true" />
+                {/* TODO: Replace with real ABN once confirmed */}
+                <span className="text-sm font-medium text-gray-700">ABN: 00 000 000 000</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white rounded-lg px-5 py-3 shadow-sm border border-gray-100">
+                <Shield className="h-5 w-5 text-primary" aria-hidden="true" />
+                <span className="text-sm font-medium text-gray-700">$20M Public Liability Insurance</span>
+              </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -262,7 +274,7 @@ export default function AboutPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600">
-                      We carry comprehensive public liability insurance to protect your property and our team during all operations. Our insurance coverage meets industry standards and provides peace of mind for every project.
+                      We carry <strong>$20M public liability insurance</strong> to protect your property and our team during all operations. Our insurance coverage meets industry standards and provides peace of mind for every project.
                     </p>
                   </CardContent>
                 </Card>
