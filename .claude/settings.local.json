@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/alexn/greenbarber/.claude/worktrees/kind-chandrasekhar -not -path */node_modules/* -type f)"
+    ]
+  }
+}
