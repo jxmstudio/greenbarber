@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/services",
+    "/gallery",
     "/about",
     "/contact",
     "/privacy",
@@ -16,7 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const serviceRoutes = services.map((service) => `/services/${service.slug}`);
 
-  const allRoutes = [...routes, ...serviceRoutes];
+  const locationRoutes = [
+    "/services/hobart",
+    "/services/kingborough",
+    "/services/huon-valley",
+    "/services/clarence",
+    "/services/glenorchy",
+    "/services/brighton",
+    "/services/sorell",
+    "/services/derwent-valley",
+  ];
+
+  const allRoutes = [...routes, ...serviceRoutes, ...locationRoutes];
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
