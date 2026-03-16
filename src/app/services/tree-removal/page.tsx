@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     "tree removal Carlton Beach",
     "emergency tree removal Southern Tasmania",
   ],
+  alternates: {
+    canonical: "/services/tree-removal",
+  },
   openGraph: {
     title: "Tree Removal in Southern Tasmania | The Green Barber",
     description:
       "Professional tree removal services throughout Southern Tasmania. Safe and efficient removal of hazardous trees.",
     type: "website",
+    url: "https://greenbarbertas.com.au/services/tree-removal",
   },
 };
 

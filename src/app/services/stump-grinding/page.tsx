@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     "stump grinding Hobart",
     "stump grinding Carlton Beach",
   ],
+  alternates: {
+    canonical: "/services/stump-grinding",
+  },
   openGraph: {
     title: "Stump Grinding in Southern Tasmania | The Green Barber",
     description:
       "Professional stump grinding services throughout Southern Tasmania. Fast and efficient stump removal.",
     type: "website",
+    url: "https://greenbarbertas.com.au/services/stump-grinding",
   },
 };
 

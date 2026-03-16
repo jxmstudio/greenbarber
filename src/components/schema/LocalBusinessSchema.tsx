@@ -43,38 +43,18 @@ export function LocalBusinessSchema() {
       "https://share.google/NOEKTr9PjbX1xX0Vv",
     ],
     areaServed: [
-      {
-        "@type": "City",
-        name: "Dodges Ferry",
-      },
-      {
-        "@type": "City",
-        name: "Carlton Beach",
-      },
-      {
-        "@type": "City",
-        name: "Eagle Hawk Neck",
-      },
-      {
-        "@type": "City",
-        name: "Midway Point",
-      },
-      {
-        "@type": "City",
-        name: "Sorrell",
-      },
-      {
-        "@type": "City",
-        name: "Hobart",
-      },
-      {
-        "@type": "City",
-        name: "Howrah",
-      },
-      {
-        "@type": "City",
-        name: "West Hobart",
-      },
+      { "@type": "AdministrativeArea", name: "Hobart" },
+      { "@type": "AdministrativeArea", name: "Kingborough" },
+      { "@type": "AdministrativeArea", name: "Huon Valley" },
+      { "@type": "AdministrativeArea", name: "Clarence" },
+      { "@type": "AdministrativeArea", name: "Glenorchy" },
+      { "@type": "AdministrativeArea", name: "Brighton" },
+      { "@type": "AdministrativeArea", name: "Sorell" },
+      { "@type": "AdministrativeArea", name: "Derwent Valley" },
+      { "@type": "City", name: "Dodges Ferry" },
+      { "@type": "City", name: "Carlton Beach" },
+      { "@type": "City", name: "Howrah" },
+      { "@type": "City", name: "Midway Point" },
     ],
   };
 

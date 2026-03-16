@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "stump grinding Kingborough",
     "arborist Kingston Tasmania",
   ],
+  alternates: {
+    canonical: "/services/kingborough",
+  },
   openGraph: {
     title: "Tree Services in Kingborough | The Green Barber",
     description:

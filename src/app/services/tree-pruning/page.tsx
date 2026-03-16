@@ -20,11 +20,15 @@ export const metadata: Metadata = {
     "crown reduction Southern Tasmania",
     "arborist Southern Tasmania",
   ],
+  alternates: {
+    canonical: "/services/tree-pruning",
+  },
   openGraph: {
     title: "Tree Pruning and Reductions in Southern Tasmania | The Green Barber",
     description:
       "Professional tree pruning and reduction services throughout Southern Tasmania. Expert arborists providing crown reduction and pruning.",
     type: "website",
+    url: "https://greenbarbertas.com.au/services/tree-pruning",
   },
 };
 

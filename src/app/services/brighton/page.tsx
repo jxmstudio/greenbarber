@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "stump grinding Pontville",
     "hedge trimming Old Beach",
   ],
+  alternates: {
+    canonical: "/services/brighton",
+  },
   openGraph: {
     title: "Tree Services in Brighton | The Green Barber",
     description:

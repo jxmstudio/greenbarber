@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     "hedge trimming Carlton Beach",
     "hedge care Southern Tasmania",
   ],
+  alternates: {
+    canonical: "/services/hedge-trimming",
+  },
   openGraph: {
     title: "Hedge Trimming in Southern Tasmania | The Green Barber",
     description:
       "Professional hedge trimming services throughout Southern Tasmania. Expert hedge care and maintenance.",
     type: "website",
+    url: "https://greenbarbertas.com.au/services/hedge-trimming",
   },
 };
 

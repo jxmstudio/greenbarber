@@ -15,41 +15,21 @@ export const metadata: Metadata = {
     "stump grinding Hobart",
     "arborist Hobart",
   ],
+  alternates: {
+    canonical: "/services/hobart",
+  },
   openGraph: {
     title: "Tree Services in Hobart | The Green Barber",
     description:
       "Certified arborists providing tree removal, pruning, hedge trimming and stump grinding throughout Hobart, Tasmania.",
     type: "website",
+    url: "https://greenbarbertas.com.au/services/hobart",
   },
-};
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "The Green Barber",
-  image: `${SITE_URL}/logo.jpg`,
-  "@id": SITE_URL,
-  url: SITE_URL,
-  telephone: "0433804284",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "70 Carlton Beach Rd",
-    addressLocality: "Dodges Ferry",
-    addressRegion: "TAS",
-    postalCode: "7173",
-    addressCountry: "AU",
-  },
-  areaServed: { "@type": "City", name: "Hobart" },
 };
 
 export default function HobartPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: `${SITE_URL}/` },

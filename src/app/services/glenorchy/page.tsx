@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "stump grinding New Town",
     "hedge trimming Glenorchy",
   ],
+  alternates: {
+    canonical: "/services/glenorchy",
+  },
   openGraph: {
     title: "Tree Services in Glenorchy | The Green Barber",
     description:

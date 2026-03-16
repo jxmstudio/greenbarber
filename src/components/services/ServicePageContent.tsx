@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, DollarSign } from "lucide-react";
+import { Phone, CheckCircle2, DollarSign, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Service } from "@/data/services";
@@ -188,15 +188,29 @@ export function ServicePageContent({ service }: ServicePageContentProps) {
                   <div className="text-sm text-gray-600">
                     <p className="font-semibold mb-2">Service Areas:</p>
                     <ul className="space-y-1">
-                      <li>• Dodges Ferry</li>
-                      <li>• Carlton Beach</li>
-                      <li>• Eagle Hawk Neck</li>
-                      <li>• Midway Point</li>
-                      <li>• Sorrell</li>
-                      <li>• Hobart</li>
-                      <li>• Howrah</li>
-                      <li>• West Hobart</li>
-                      <li>• And more...</li>
+                      {[
+                        { name: "Hobart", slug: "hobart" },
+                        { name: "Kingborough", slug: "kingborough" },
+                        { name: "Huon Valley", slug: "huon-valley" },
+                        { name: "Clarence", slug: "clarence" },
+                        { name: "Glenorchy", slug: "glenorchy" },
+                        { name: "Brighton", slug: "brighton" },
+                        { name: "Sorell", slug: "sorell" },
+                        { name: "Derwent Valley", slug: "derwent-valley" },
+                      ].map((area) => (
+                        <li key={area.slug}>
+                          <Link
+                            href={`/services/${area.slug}`}
+                            className="flex items-center justify-between text-gray-600 hover:text-primary transition-colors py-0.5"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <CheckCircle2 className="h-3 w-3 text-primary flex-shrink-0" aria-hidden="true" />
+                              {area.name}
+                            </span>
+                            <ArrowRight className="h-3 w-3 text-gray-400 group-hover:text-primary" aria-hidden="true" />
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </CardContent>

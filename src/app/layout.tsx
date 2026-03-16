@@ -36,9 +36,6 @@ export const metadata: Metadata = {
     "arborist Southern Tasmania",
     "tree reduction Southern Tasmania",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "The Green Barber | Professional Tree Services in Southern Tasmania",
     description:

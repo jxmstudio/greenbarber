@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "stump grinding Bushy Park",
     "hedge trimming Derwent Valley",
   ],
+  alternates: {
+    canonical: "/services/derwent-valley",
+  },
   openGraph: {
     title: "Tree Services in Derwent Valley | The Green Barber",
     description:

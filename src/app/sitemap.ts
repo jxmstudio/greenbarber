@@ -28,13 +28,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/derwent-valley",
   ];
 
+  const corePages = ["/about", "/contact", "/gallery", "/services"];
   const allRoutes = [...routes, ...serviceRoutes, ...locationRoutes];
 
-  return allRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
-  }));
+  return allRoutes.map((route) => {
+    if (route === "") {
+      return { url: `${baseUrl}${route}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1.0 };
+    }
+    if (serviceRoutes.includes(route)) {
+      return { url: `${baseUrl}${route}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 };
+    }
+    if (locationRoutes.includes(route)) {
+      return { url: `${baseUrl}${route}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 };
+    }
+    if (corePages.includes(route)) {
+      return { url: `${baseUrl}${route}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 };
+    }
+    return { url: `${baseUrl}${route}`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 };
+  });
 }
 

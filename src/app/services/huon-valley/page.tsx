@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "stump grinding Huonville",
     "hedge trimming Cygnet",
   ],
+  alternates: {
+    canonical: "/services/huon-valley",
+  },
   openGraph: {
     title: "Tree Services in Huon Valley | The Green Barber",
     description:
