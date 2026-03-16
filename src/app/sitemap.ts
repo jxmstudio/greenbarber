@@ -26,6 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/brighton",
     "/services/sorell",
     "/services/derwent-valley",
+    // Suburb-level pages (hyper-local, home-base area)
+    "/services/dodges-ferry",
+    "/services/carlton-beach",
+    "/services/eagle-hawk-neck",
+    "/services/midway-point",
   ];
 
   const corePages = ["/about", "/contact", "/gallery", "/services"];

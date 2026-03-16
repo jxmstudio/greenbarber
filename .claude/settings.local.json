@@ -9,7 +9,9 @@
       "Bash(npm view:*)",
       "Bash(npm install:*)",
       "Bash(node -e \"const r = require\\(''./node_modules/baseline-browser-mapping/package.json''\\); console.log\\(''Installed version:'', r.version\\)\")",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "WebFetch(domain:share.google)",
+      "WebFetch(domain:www.google.com)"
     ]
   }
 }

@@ -4,11 +4,11 @@ import { VideoHero } from "@/components/hero/VideoHero";
 import { ServiceSection } from "@/components/services/ServiceSection";
 import { ContactStrip } from "@/components/common/ContactStrip";
 import { EmergencyCTA } from "@/components/common/EmergencyCTA";
-import { FacebookReviews } from "@/components/reviews/FacebookReviews";
+import { ReviewsCarousel } from "@/components/reviews/ReviewsCarousel";
 import { services } from "@/data/services";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Users, MapPin, ArrowRight } from "lucide-react";
+import { CheckCircle2, Award, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -38,27 +38,6 @@ export default function HomePage() {
       title: "Local Expertise",
       description:
         "As Southern Tasmania locals, we understand the unique tree species and local regulations in the region.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Mitchell",
-      location: "Dodges Ferry, Tasmania",
-      text: "Excellent service! The team removed a large tree safely and efficiently. Very professional and cleaned up perfectly.",
-      rating: 5,
-    },
-    {
-      name: "John Thompson",
-      location: "Carlton Beach, Tasmania",
-      text: "Great experience from quote to completion. The stump grinding was done quickly and the yard looks fantastic.",
-      rating: 5,
-    },
-    {
-      name: "Emma Davis",
-      location: "Hobart, Tasmania",
-      text: "Professional, reliable, and reasonably priced. They did a fantastic job pruning our trees. Highly recommend!",
-      rating: 5,
     },
   ];
 
@@ -152,8 +131,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Facebook Reviews Section */}
-      <FacebookReviews />
+      {/* Reviews Carousel */}
+      <ReviewsCarousel />
 
       {/* Service Areas Section */}
       <section className="py-16 md:py-24 relative overflow-hidden" style={{

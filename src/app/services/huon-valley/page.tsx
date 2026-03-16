@@ -26,33 +26,9 @@ export const metadata: Metadata = {
   },
 };
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "The Green Barber",
-  image: `${SITE_URL}/logo.jpg`,
-  "@id": SITE_URL,
-  url: SITE_URL,
-  telephone: "0433804284",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "70 Carlton Beach Rd",
-    addressLocality: "Dodges Ferry",
-    addressRegion: "TAS",
-    postalCode: "7173",
-    addressCountry: "AU",
-  },
-  areaServed: { "@type": "AdministrativeArea", name: "Huon Valley" },
-};
-
 export default function HuonValleyPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: `${SITE_URL}/` },

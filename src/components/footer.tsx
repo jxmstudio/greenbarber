@@ -20,14 +20,14 @@ export function Footer() {
   ];
 
   const serviceAreas = [
-    "Dodges Ferry",
-    "Carlton Beach",
-    "Eagle Hawk Neck",
-    "Midway Point",
-    "Sorrell",
-    "Hobart",
-    "Howrah",
-    "West Hobart",
+    { label: "Dodges Ferry", href: "/services/dodges-ferry" },
+    { label: "Carlton Beach", href: "/services/carlton-beach" },
+    { label: "Eagle Hawk Neck", href: "/services/eagle-hawk-neck" },
+    { label: "Midway Point", href: "/services/midway-point" },
+    { label: "Sorell", href: "/services/sorell" },
+    { label: "Hobart", href: "/services/hobart" },
+    { label: "Howrah", href: "/services/clarence" },
+    { label: "West Hobart", href: "/services/hobart" },
   ];
 
   return (
@@ -144,8 +144,10 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Service Areas</h4>
             <ul className="space-y-2">
               {serviceAreas.map((area) => (
-                <li key={area} className="text-sm">
-                  {area}
+                <li key={area.label} className="text-sm">
+                  <Link href={area.href} className="hover:text-primary transition-colors">
+                    {area.label}
+                  </Link>
                 </li>
               ))}
               <li className="text-sm text-gray-400 mt-2">and surrounding suburbs</li>

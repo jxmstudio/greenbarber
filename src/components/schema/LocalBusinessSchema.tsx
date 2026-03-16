@@ -18,8 +18,8 @@ export function LocalBusinessSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -42.9925,
-      longitude: 147.8105,
+      latitude: -42.859024,
+      longitude: 147.612466,
     },
     email: "thegreenbarbertas@gmail.com",
     openingHoursSpecification: {
@@ -40,7 +40,7 @@ export function LocalBusinessSchema() {
     sameAs: [
       "https://www.facebook.com/profile.php?id=61573561687111",
       "https://www.instagram.com/the_green_barber_tas/",
-      "https://share.google/NOEKTr9PjbX1xX0Vv",
+      "https://share.google/1ZmIIcEl4Z2iHc3EJ",
     ],
     areaServed: [
       { "@type": "AdministrativeArea", name: "Hobart" },
