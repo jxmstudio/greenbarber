@@ -169,6 +169,15 @@ export function Footer() {
               <Link href="/terms" className="hover:text-primary transition-colors">
                 Terms of Service
               </Link>
+              <span className="text-gray-600">|</span>
+              <a
+                href="https://www.jxmstudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Website by JXM Studio
+              </a>
             </div>
           </div>
         </div>
