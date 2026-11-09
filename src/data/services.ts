@@ -79,7 +79,7 @@ export const services: Service[] = [
     pricing: "Contact us for a free quote. Pricing depends on hedge length, height, and trimming frequency.",
     pricingFrom: "from $150",
     imageAlt: "Professional hedge trimming service in Southern Tasmania",
-    image: "/treepruning/Attachment.jpeg",
+    image: "/hedge-trimming/hedge-shaping-hobart.jpg",
   },
   {
     id: "tree-pruning",

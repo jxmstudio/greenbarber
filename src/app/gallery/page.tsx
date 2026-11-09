@@ -21,6 +21,27 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
+  // Latest jobs
+  {
+    src: "/Tree removal/stump-and-chainsaw.jpg",
+    alt: "Large gum tree felled and cut to the stump on a waterfront property",
+    category: "Tree Removal",
+  },
+  {
+    src: "/equipment/excavator-log-handling.jpg",
+    alt: "Mini excavator with grapple moving large logs during a bush clearing job",
+    category: "Tree Removal",
+  },
+  {
+    src: "/hedge-trimming/hedge-shaping-hobart.jpg",
+    alt: "Large sculpted conifer hedge trimmed and shaped in Hobart",
+    category: "Hedge Trimming",
+  },
+  {
+    src: "/equipment/truck-and-chipper.jpg",
+    alt: "The Green Barber truck and Bandit wood chipper ready for a job",
+    category: "Equipment",
+  },
   // Crane jobs
   {
     src: "/Crane jobs/IMG_2768.jpeg",

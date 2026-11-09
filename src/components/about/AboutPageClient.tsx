@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContactStrip } from "@/components/common/ContactStrip";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Award,
   Users,
@@ -112,6 +113,15 @@ export function AboutPageClient() {
                   customer base and numerous referrals throughout Tasmania. We're proud to be your
                   local tree service experts.
                 </p>
+              </div>
+              <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
+                <Image
+                  src="/equipment/truck-and-chipper.jpg"
+                  alt="The Green Barber truck, mini excavator and Bandit wood chipper on a bush job in Southern Tasmania"
+                  fill
+                  sizes="(max-width: 896px) 100vw, 896px"
+                  className="object-cover"
+                />
               </div>
             </motion.div>
           </div>
